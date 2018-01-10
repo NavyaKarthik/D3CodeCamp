@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,10 +6,8 @@
     <title></title>
          <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://d3js.org/d3.v3.min.js"></script>
-      <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
- 
-      <script src="https://rawgit.com/NavyaKarthik/CodeCamp/master/D3GaugeCreate.js"></script>
+  <script type="text/javascript" src="Scripts/D3GaugeChart.js"></script>
+     
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -17,11 +15,11 @@
             var innerRadius = 50,
                 outerRadius = 60,
                 id = "Chart",
-                margin = { "Left": 0, "Right": 0, "Top": 0, "Bottom": 0 },
+                margin = { "Left": 2, "Right": 2, "Top": 2, "Bottom": 2 },
                 chartColor = "blue",
-                colorPerPercent = { "#143759": { "start": 0,"end":30 }, "rgb(77,185,76)":{ "start": 31,"end":60 }, "rgb(250,12,30)":{ "start": 61,"end":80 }, "black":{ "start": 81,"end":100 } };
-            var chart = new GaugeChart({ "innerRadius": innerRadius, "outerRadius": outerRadius, "id": id, "margin": margin, "chartColor": chartColor,"ColorPerPercent":colorPerPercent } );
-         //    var chart = new GaugeChart({"id": id} );
+                colorPerPercent = { "#143759": { "start": 0,"end":45}, "rgb(77,185,76)":{ "start": 46,"end":55 }, "rgb(250,12,30)":{ "start": 56,"end":100 }};
+           var chart = new GaugeChart({ "innerRadius": innerRadius, "outerRadius": outerRadius, "id": id, "margin": margin, "chartColor": chartColor,"ColorPerPercent":colorPerPercent } );
+            
              chart.CreateGaugeChart();
              chart.updateGaugeChart(0.63);
         });
