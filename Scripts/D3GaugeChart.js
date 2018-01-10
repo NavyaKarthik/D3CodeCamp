@@ -7,10 +7,9 @@ var CenterX = 0,
     RightX,
     RightY;
 
-var svg, arc, needleG,chartName,ColorsPercent,CurrentLimit;
+var svg, arc, needleG,chartName,ColorsPercent;
 
-
-    var chartHeight,chartWidth;
+var chartHeight,chartWidth;
 
 class GaugeChart{   
 
@@ -20,7 +19,7 @@ class GaugeChart{
         this.outerRadius = input.outerRadius||60;
         this.TextColor = input.TextColor||"#000000";
         this.NeedleColor = input.NeedleColor || "black";
-        this.margin = { "Left": 0, "Right": 0, "Top": 0, "Bottom": 0 };
+        this.margin = { "Left": 1, "Right": 1, "Top": 1, "Bottom": 1 };
         if (input.margin != undefined) {
             this.margin.Left = input.margin.Left || 1;
             this.margin.Right = input.margin.Right || 1;
@@ -29,13 +28,10 @@ class GaugeChart{
         }
         this.NeedleHeight = input.NeedleHeight || this.outerRadius;
         this.NeedleRadius = input.NeedleRadius||3;
-        this.valueAsPercent = input.valueAsPercent;
         this.ColorPerPercent = input.ColorPerPercent;
         this.id = input.id;
-        this.Limit = input.Limit || 100000;
 
     }
-
     CreateGaugeChart() {
         chartHeight = this.outerRadius + (this.margin.Top + this.margin.Bottom) + (this.NeedleRadius*2);
         chartWidth = (this.outerRadius * 2) + (this.margin.Left+this.margin.Right);
@@ -59,7 +55,7 @@ class GaugeChart{
             .attr("class", "GaugeArc")
             .attr("fill", this.ChartColor)
             .attr("stroke-width", 1)
-            .attr("stroke", this.ChartColor);
+            .attr("stroke", this.ChartColor);       
 
         needleG = svg.append("g")
             .attr("tranform", "translate(" + (this.margin.Left + this.outerRadius) + "," + (this.margin.Top + this.outerRadius + this.NeedleRadius) + ")")
@@ -86,7 +82,6 @@ class GaugeChart{
     updateGaugeChart(percent) {
         var current = this;
         ColorsPercent = this.ColorPerPercent;
-        CurrentLimit = this.Limit;
         svg.transition().delay(0).ease('linear').duration(1000).selectAll('.needle').tween('progress', function () {
             return function (percentOfPercent) {
                 var progress;
