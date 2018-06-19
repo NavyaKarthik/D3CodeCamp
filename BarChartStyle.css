@@ -1,0 +1,63 @@
+div.tooltip {	
+    position: absolute;			
+    text-align: center;							
+    height: 12px;					
+    padding: 5px;				
+    font: 12px sans-serif;		
+    background: infobackground;	
+    border: 1px solid infotext;		
+    pointer-events: none;		
+   	
+}
+
+div.details {	
+    position: absolute;			
+    text-align: center;												
+    padding: 5px;				
+    font: 12px sans-serif;		
+    background: white;	
+    border:1px solid rgb(219, 218, 218);		
+    pointer-events: none;	
+    box-shadow:  rgb(219, 218, 218) 1px 0px 1px 1px;	
+}
+       
+div.details:after {
+    border-color: #FFFFFF rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: 6px 6px 0;
+    bottom: -6px;
+    content: "";
+    display: block;
+    left: 10px;
+    position: absolute;
+    width: 0;
+   
+}
+
+div.details:before
+{
+    border-color:  rgb(219, 218, 218) rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: 8px 8px 0;
+    bottom: -8px;
+    content: "";
+    display: block;
+    left: 8px;
+    position: absolute;
+    width: 0;
+   
+}
+
+
+.axis--y .tick line{
+    stroke: darkgray;
+    stroke-dasharray:3,1;
+}
+
+.axis--y path{
+    stroke: none;
+}
+
+.axis--y .tick:nth-child(1)>line{
+    display: none;
+}
